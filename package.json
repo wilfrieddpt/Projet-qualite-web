@@ -9,7 +9,10 @@
     "prepare": "husky install",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test:unit": "vitest tests/unit",
+     "test:e2e": "playwright test tests/e2e",
+     "test": "npm run test:e2e && npm run test:unit"
   },
   "dependencies": {
     "ejs": "^3.1.10",
@@ -18,11 +21,14 @@
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
+    "@playwright/test": "^1.50.1",
+    "@vitest/coverage-c8": "^0.33.0",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
     "husky": "^8.0.0",
     "nodemon": "^3.1.9",
+    "vitest": "^3.0.5",
     "prettier": "^3.5.1"
   }
 }
