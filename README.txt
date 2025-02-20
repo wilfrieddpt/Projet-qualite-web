@@ -33,8 +33,64 @@ Ce REAME contient un réssumé des fonctionnalités implémenter et la réponse 
                             Debugging et Performance
 
 
+		//Parti Débogage avec --inspect
 
 
+Procédure à suivre : 
+	- Lancer le projet avec --inspect
+	- aller dans l'inspector dans le navigateur : F12 ou clic droit/inspecter
+
+Ensuite dans le code on peut mettre des lignes pour arrêter le site à ceertain point : "debugger;"
+			=> il est possible même avec nodemon que l'on doive recharger la page
+
+Ensuite on a accé au variable dans l'onglet Scope.
+On peut aussi voir les message comme console.log() dans la parti console. 
+			=> diférent onglet : message / user message / error / no warning / info 
+			=> cela permet de trier les messages que l'on veut voir
+On peut aussi exécuter 
+Finalement : 
+
+	=> Le mode --inspect permet d’avoir une meilleure visibilité sur l'exécution du code
+	=> En utilisant les breakpoints, on peut voir quelle ligne pose problème
+	=> C’est beaucoup plus efficace que d'ajouter des console.log() partout
+
+
+		//Parti pour autocannon
+
+liste des commandes : 
+
+        autocannon -c 25 -d 10 -p 3 http://localhost:3009/posts
+
+Explication : 
+Paramètre	        Valeur	        Pourquoi
+=============================================================================================================================================
+connections	        25	        Nombre d’utilisateurs simulée en même temps. ICI on a pas besoin de mettre la pression longtemps sur le server
+duration	        10	        Durée totale du test en secondes. Au vu du site, il ne peut pas être surchargé pendant plus d'une minutes.
+pipelining	        3	        Nombre de requêtes qu’une utilisateur envoie sans attendre la réponse précédente. En général sur les petits sit on fait une dieain de requette 
+
+
+Justification : 
+Au vu de la taille du site vraiment petite, il n'est pas concu pour recevoir beaucoup de personne ne même temps. 
+Au vu de l'architechture, les utilisateurs ne passe pas beaucoup de temps à chercher les informations. En trois clic on accède à tout.  
+
+Résultat : 
+                    Temps de latence (Latency)
+                    ┌─────────┬────────┬─────────┬─────────┬──────────┬────────────┬────────────┬──────────┐
+                    │ Stat    │ 2.5%   │ 50%     │ 97.5%   │ 99%      │ Avg        │ Stdev      │ Max      │
+                    ├─────────┼────────┼─────────┼─────────┼──────────┼────────────┼────────────┼──────────┤
+                    │ Latency │ 256 ms │ 4831 ms │ 9773 ms │ 10068 ms │ 4758.52 ms │ 3229.73 ms │ 10068 ms │
+                    └─────────┴────────┴─────────┴─────────┴──────────┴────────────┴────────────┴──────────┘                    
+                    ┌───────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
+                    │ Stat      │ 1%      │ 2.5%    │ 50%     │ 97.5%   │ Avg     │ Stdev   │ Min     │
+                    ├───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
+                    │ Req/Sec   │ 6       │ 6       │ 8       │ 11      │ 8,2     │ 1,78    │ 6       │
+                    ├───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
+                    │ Bytes/Sec │ 3.79 MB │ 3.79 MB │ 5.05 MB │ 6.95 MB │ 5.18 MB │ 1.12 MB │ 3.79 MB │
+                    └───────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
+
+Conclusion : 
+Autocannon permet effectivement assez bien de simuler plein de requête sur le server. Grace à cette outil on peut assez simplement tester un site 
+plus ou moins grand. 
 
 ********************************************************************************
                                 Tests Unitaires et End-to-End

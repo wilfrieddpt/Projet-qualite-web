@@ -1,5 +1,7 @@
+import "./instrument.js";
 import express, { Request, Response } from "express";
 import PostService from "./services/PostService";
+import * as Sentry from "@sentry/node";
 
 const app = express();
 
@@ -11,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const postService = new PostService();
 
-app.use("/", (req: Request, res: Response) => {
+app.get("/", (req: Request, res: Response) => {
     res.render("home");
 });
 
@@ -53,3 +55,16 @@ app.post("/posts/:id", (req: Request, res: Response) => {
     const updatedPost = postService.updatePost(parseInt(req.params.id), req.body);
     res.redirect(`/posts/${req.params.id}`);
 });
+
+const PORT = process.env.PORT || 3009;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
+
+// MONITORING : test de Sentry
+try {
+    // @ts-expect-error: This is a test error to demonstrate Sentry integration
+    foo();
+} catch (e) {
+    Sentry.captureException(e);
+}
