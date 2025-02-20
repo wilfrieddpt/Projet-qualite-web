@@ -12,7 +12,6 @@ test("Créer, modifier et vérifier un article", async ({ page }) => {
     await expect(PublierBtn).toBeVisible();
     await PublierBtn.click();
 
-
     // On vérif ici qu'on l'à bien créé
     await page.goto("http://localhost:3009/posts");
     await page.pause(); // Mets en pause ici pour voir si l'article apparaît
