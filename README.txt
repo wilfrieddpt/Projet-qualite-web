@@ -69,12 +69,20 @@ Pour lancer tous les tests : npm run test
                         Automatisation avec GitHub Actions
 
 
+1. Créer un fichier de configuration pour GitHub Actions
+Localisation du fichier : Dans le dépôt GitHub, créer un répertoire .github/workflows/.
+Fichier de configuration : À l'intérieur de ce répertoire, créer un fichier YAML pour la pipeline, par exemple ci.yml.
+Le fichier .github/workflows/ci.yml contiendra toutes les étapes de la pipeline CI.
 
+2. Définir les jobs dans la pipeline
+ajout de configuration pour GitHub Actions qui exécute ESLint, les tests unitaires avec Vitest et les tests E2E avec Playwright
 
+3. Ajouter les scripts nécessaires dans package.json
+avoir les scripts dans ton package.json qui correspondent aux commandes appelées dans le fichier GitHub Actions
 
-
-
-
+4. Tester la pipeline CI
+Une fois le fichier .github/workflows/ci.yml  configuré et mis à jour le package.json, pousser les modifications sur le dépôt GitHub. GitHub Actions lancera automatiquement la pipeline pour vérifier si tout fonctionne comme prévu.
+ voir l'état de la pipeline en te rendant dans l'onglet "Actions" du dépôt GitHub.
 
 
 
