@@ -4,9 +4,12 @@ module.exports = {
       'type-enum': [
         2,
         'always',
-        ['Fonctionnalité', 'Correction de bug', 'Correction', 'Ajout', 'Test'], // a mettre en debut de message ex : "fonctionnalité: Ajout de la fonctionnalité"
+        ['fonctionnalité', 'correction de bug', 'correction', 'ajout', 'test','config'],
       ],
       'subject-case': [2, 'always', 'sentence-case'], // Le message commence par une majuscule
       'header-max-length': [2, 'always', 100], // Limite à 100 caractères max
     },
   };
+
+
+  // exemple : git commit -m "ajout: Commitlint et husky + config"
