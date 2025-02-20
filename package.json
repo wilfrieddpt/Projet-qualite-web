@@ -18,6 +18,8 @@
     "watch": "tsc --watch"
   },
   "dependencies": {
+    "@sentry/node": "^9.1.0",
+    "@sentry/vite-plugin": "^3.2.0",
     "ejs": "^3.1.10",
     "express": "^4.21.2"
   },

@@ -62,6 +62,15 @@ Pour lancer tous les tests : npm run test
                             Monitoring et Reporting d Erreurs
 
 
+Pour le monitoring, nous utilisons Sentry afin d'avoir le suivis des erreurs rencontré sur le site.
+
+Voici la procédure permettant d'initialiser Sentry et de récupérer les erreurs :
+    1. Créer ou se connecter à un compte sur Sentry.io.
+    2. Initialiser un projet Sentry sur le site Sentry.io et suivre les étapes d'instalation étape par étape de Sentry dans le site.
+    3. Vérifier la bonne installation et initialisation de Sentry en instaurant une erreur dans le fichier "index.js".
+    4. Capturer l'erreur avec un try catch et ajouter la ligne "Sentry.captureException(e);" dans le catch.
+    5. Si l'erreur est bien intercepté par Sentry, alors lors de l'initialisation, le site de Sentry vous indiquera la bonne reception de l'erreur et vous invitera a vérifier votre onglet "Issues".
+        Rendez vous sur cet onglet pour retrouver votre erreur en détail.
 
 
 
