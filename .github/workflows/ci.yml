@@ -14,14 +14,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Version Node.js à utiliser
+          node-version: '16'  # Utilise la version de Node.js correspondante à ton projet
+
       - name: Install dependencies
-        run: npm install
+        run: npm install  # Installe toutes les dépendances définies dans package.json
+
       - name: Run ESLint
-        run: npm run lint  # Script lint défini dans package.json
+        run: npm run lint  # Exécute le linting via la commande npm run lint
 
   test_unit:
     runs-on: ubuntu-latest
@@ -29,14 +32,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+
       - name: Install dependencies
         run: npm install
+
       - name: Run unit tests with Vitest
-        run: npm run test  # Script test défini dans package.json
+        run: npm run test:unit  # Exécute les tests unitaires avec Vitest
 
   test_e2e:
     runs-on: ubuntu-latest
@@ -44,13 +50,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+
       - name: Install dependencies
         run: npm install
+
       - name: Install Playwright dependencies
-        run: npx playwright install  # Installe les navigateurs nécessaires à Playwright
+        run: npx playwright install  # Installe les dépendances nécessaires pour Playwright (navigateurs)
+
       - name: Run E2E tests with Playwright
-        run: npm run test:e2e  # Script test:e2e défini dans package.json
+        run: npm run test:e2e  # Exécute les tests E2E avec Playwright
