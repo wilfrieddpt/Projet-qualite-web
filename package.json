@@ -17,6 +17,8 @@
     "watch": "tsc --watch"
   },
   "dependencies": {
+    "@sentry/node": "^9.1.0",
+    "@sentry/vite-plugin": "^3.2.0",
     "ejs": "^3.1.10",
     "express": "^4.21.2"
   },
@@ -34,6 +36,6 @@
     "nodemon": "^3.1.9",
     "prettier": "^3.5.1",
     "typescript": "^5.7.3",
-    "vitest": "^3.0.6"
+    "vitest": "^0.34.6"
   }
 }

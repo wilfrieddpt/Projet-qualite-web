@@ -1,6 +1,9 @@
+require("./instrument.js");
+
 const express = require("express");
 const PostService = require("./services/PostService");
 const app = express();
+const Sentry = require("@sentry/node");
 
 app.use(express.json());
 app.set("view engine", "ejs");
@@ -57,3 +60,10 @@ const PORT = process.env.PORT || 3009;
 app.listen(PORT, () => {
   console.log(`Server running on  http://localhost:${PORT}`);
 });
+
+// MONITORING : test de Sentry
+try {
+  foo();
+} catch (e) {
+  Sentry.captureException(e);
+}
