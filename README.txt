@@ -11,23 +11,28 @@ Ce REAME contient un réssumé des fonctionnalités implémenter et la réponse 
 ********************************************************************************
                                 Linting des commits
 
-
-
-
+Pour assurer la qualité des messages de commit, nous avons mis en place Commitlint.
+Commintlint vérifie que les messages de commit respectent les "règles" mise en place dans le projet.
+Nous avons choisi par exemple de mettre les commits par catégorie: fonctionnalités, correction, ajout, test, config
+Ces catégorie permettre de couvrir environ toute les possibilités de commit différent pour nous.
 
 ********************************************************************************
                             Mise en Place des Outils de Qualité
 
-
-
-
+Afin de facilité notre environnement de travail, on a mis en place des outils de qualité,
+comme Eslint. Eslint permet d'analyser le code et de détecter les erreur de style et de qualité, 
+cela nous permet d'avoir un code qui est propre.
+On a aussi mis en place prettier et Husky.
 
 ********************************************************************************
                                 Passage à TypeScript
 
+Nous avons converti le projet en TypeScript afin d'améliorer la qualité du ode et de bénéficier de ces avantages.
 
+//installation de ts 
+npm install --save-dev typescript @types/node @types/express
 
-
+Pour la conversion nous avons du changer l'extension des fichiers et une fois fait, on a du modifier le code pour l'adapter au language TS
 
 ********************************************************************************
                             Debugging et Performance

@@ -52,7 +52,7 @@ app.get("/posts/:id", (req: Request, res: Response) => {
 
 app.post("/posts/:id", (req: Request, res: Response) => {
     console.log(req.params.id);
-    const updatedPost = postService.updatePost(parseInt(req.params.id), req.body);
+    //const updatedPost = postService.updatePost(parseInt(req.params.id), req.body);
     res.redirect(`/posts/${req.params.id}`);
 });
 
