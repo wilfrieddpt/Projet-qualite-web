@@ -59,6 +59,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Start server
+        run: npm run dev &  # Démarre le serveur en arrière-plan
+
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:3009  # Attend que le serveur soit prêt
+
       - name: Install Playwright dependencies
         run: npx playwright install  # Installe les dépendances nécessaires pour Playwright (navigateurs)
 
