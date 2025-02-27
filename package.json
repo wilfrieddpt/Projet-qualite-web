@@ -2,11 +2,11 @@
   "name": "blog-quality-project",
   "version": "1.0.0",
   "description": "Projet noté - Qualité algorithmique",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec ts-node src/index.ts",
     "prepare": "husky install",
     "format": "prettier --write .",
     "lint": "eslint .",
@@ -38,6 +38,7 @@
     "husky": "^9.1.7",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
     "vitest": "^0.34.6"
   }

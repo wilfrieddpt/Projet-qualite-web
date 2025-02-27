@@ -1,4 +1,11 @@
-import data from "../data.json";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const data = JSON.parse(readFileSync(join(__dirname, "../data.json"), "utf-8"));
 
 interface Post {
     id: number;
