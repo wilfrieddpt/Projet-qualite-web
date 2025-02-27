@@ -60,7 +60,7 @@ jobs:
         run: npm install
 
       - name: Start server
-        run: npm run dev  # Démarre le serveur en arrière-plan
+        run: npm run dev & # Démarre le serveur en arrière-plan
 
       - name: Install Playwright dependencies
         run: npx playwright install  # Installe les dépendances nécessaires pour Playwright (navigateurs)
