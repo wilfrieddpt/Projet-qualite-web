@@ -62,6 +62,10 @@ jobs:
       - name: Start server
         run: npm run dev & # Démarre le serveur en arrière-plan
 
+      - name: Wait for server to be ready
+        run: |
+          timeout 30s bash -c until curl -sSf http://localhost:3000 >/dev/null; do sleep 2; done'
+
       - name: Install Playwright dependencies
         run: npx playwright install  # Installe les dépendances nécessaires pour Playwright (navigateurs)
 
