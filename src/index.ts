@@ -1,7 +1,8 @@
 import express from "express";
 import type { Request, Response } from "express";
-import "./instrument.ts";
-import PostService from "./services/PostService.ts";
+import "./instrument";
+import PostService from "./services/PostService";
+
 import * as Sentry from "@sentry/node";
 
 const app = express();

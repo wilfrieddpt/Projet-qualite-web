@@ -1,14 +1,14 @@
 "use strict";
-var __importDefault =
-    (this && this.__importDefault) ||
-    function (mod) {
-        return mod && mod.__esModule ? mod : { default: mod };
-    };
 Object.defineProperty(exports, "__esModule", { value: true });
-const data_json_1 = __importDefault(require("../data.json"));
+const fs_1 = require("fs");
+const url_1 = require("url");
+const path_1 = require("path");
+const __filename = (0, url_1.fileURLToPath)(import.meta.url);
+const __dirname = (0, path_1.dirname)(__filename);
+const data = JSON.parse((0, fs_1.readFileSync)((0, path_1.join)(__dirname, "../data.json"), "utf-8"));
 class PostService {
     constructor() {
-        this.posts = [...data_json_1.default.posts];
+        this.posts = [...data.posts];
     }
     getAllPosts() {
         return this.posts;
@@ -29,13 +29,9 @@ class PostService {
     }
     updatePost(id, postData) {
         const index = this.posts.findIndex((post) => post.id === id);
-        if (index === -1) return null;
-        this.posts[index] = Object.assign(Object.assign({}, this.posts[index]), {
-            title: postData.title,
-            content: postData.content,
-            author: postData.author,
-            updatedAt: new Date().toISOString()
-        });
+        if (index === -1)
+            return null;
+        this.posts[index] = Object.assign(Object.assign({}, this.posts[index]), { title: postData.title, content: postData.content, author: postData.author, updatedAt: new Date().toISOString() });
         return this.posts[index];
     }
 }
