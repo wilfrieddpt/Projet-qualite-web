@@ -29,9 +29,13 @@ class PostService {
     }
     updatePost(id, postData) {
         const index = this.posts.findIndex((post) => post.id === id);
-        if (index === -1)
-            return null;
-        this.posts[index] = Object.assign(Object.assign({}, this.posts[index]), { title: postData.title, content: postData.content, author: postData.author, updatedAt: new Date().toISOString() });
+        if (index === -1) return null;
+        this.posts[index] = Object.assign(Object.assign({}, this.posts[index]), {
+            title: postData.title,
+            content: postData.content,
+            author: postData.author,
+            updatedAt: new Date().toISOString()
+        });
         return this.posts[index];
     }
 }

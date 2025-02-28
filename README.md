@@ -35,6 +35,8 @@ Afin de faciliter notre environnement de travail, nous avons mis en place plusie
 - **Prettier** : formate automatiquement le code pour une meilleure lisibilité.
 - **Husky** : permet d'automatiser l'exécution des tests et du linting avant chaque commit.
 
+pour les lint :  npm run lint puis npm run lint:fix
+
 ---
 
 ## **Passage à TypeScript**
