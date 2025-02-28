@@ -4,8 +4,8 @@ const { fileURLToPath } = require("url");
 const { dirname } = require("path");
 const { FlatCompat } = require("@eslint/eslintrc");
 
-const __filename = fileURLToPath(require.main.filename);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(require.main.filename);
+// const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
     baseDirectory: __dirname,
