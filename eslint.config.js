@@ -1,10 +1,10 @@
-import typescriptPlugin from "@typescript-eslint/eslint-plugin";
-import typescriptParser from "@typescript-eslint/parser";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import { FlatCompat } from "@eslint/eslintrc";
+const typescriptPlugin = require("@typescript-eslint/eslint-plugin");
+const typescriptParser = require("@typescript-eslint/parser");
+const { fileURLToPath } = require("url");
+const { dirname } = require("path");
+const { FlatCompat } = require("@eslint/eslintrc");
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = fileURLToPath(require.main.filename);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
@@ -12,7 +12,7 @@ const compat = new FlatCompat({
     resolvePluginsRelativeTo: __dirname
 });
 
-export default [
+module.exports = [
     {
         files: ["**/*.ts", "**/*.tsx"],
         languageOptions: {
